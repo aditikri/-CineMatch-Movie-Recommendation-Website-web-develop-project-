@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CineMatch movie discovery and recommendation website">
+    <meta name="keywords" content="movies, movie recommendations, cinema, watchlist">
+    <title>CineMatch | Movie Discovery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">Cine<span>Match</span></a>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#movies">Explore Movies</a>
+            <a href="#watchlist">My Watchlist</a>
+            <a href="#feedback">Feedback</a>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="tagline">YOUR NEXT MOVIE NIGHT STARTS HERE</p>
+                <h1>Find Your Next <span>Favourite</span> Movie.</h1>
+                <p>Explore movies, discover new genres and create your personal watchlist.</p>
+                <a href="#movies" class="primary-btn">Explore Movies →</a>
+                <button class="secondary-btn" id="randomBtn">🎲 Surprise Me</button>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div><h2 id="movieCount">0</h2><p>Movies to Explore</p></div>
+            <div><h2 id="watchCount">0</h2><p>Movies in Watchlist</p></div>
+            <div><h2>∞</h2><p>Movie Nights</p></div>
+        </section>
+
+        <section class="movie-section" id="movies">
+            <div class="section-heading">
+                <div>
+                    <p class="tagline">FIND YOUR ENTERTAINMENT</p>
+                    <h2>Explore Movies</h2>
+                </div>
+            </div>
+
+            <div class="search-area">
+                <input type="search" id="searchInput"
+                       placeholder="Search by movie title..."
+                       aria-label="Search movies">
+                <select id="genreFilter" aria-label="Filter by genre">
+                    <option value="All">All Genres</option>
+                    <option value="Action">Action</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Romance">Romance</option>
+                </select>
+                <button class="primary-btn" id="searchBtn">Search</button>
+            </div>
+
+            <p id="resultMessage" class="result-message" aria-live="polite"></p>
+            <div class="movie-grid" id="movieGrid"></div>
+        </section>
+
+        <section class="recommendation-section">
+            <div>
+                <p class="tagline">CAN'T DECIDE?</p>
+                <h2>Let CineMatch Choose for You</h2>
+                <p>Get a random movie recommendation for your next movie night.</p>
+            </div>
+            <button class="primary-btn" id="recommendBtn">Recommend a Movie ✨</button>
+            <div id="recommendationResult" class="recommendation-result" aria-live="polite"></div>
+        </section>
+
+        <section class="movie-section" id="watchlist">
+            <div class="section-heading">
+                <div>
+                    <p class="tagline">SAVE FOR LATER</p>
+                    <h2>My Watchlist ❤️</h2>
+                </div>
+                <button class="secondary-btn" id="clearWatchlistBtn">Clear Watchlist</button>
+            </div>
+            <div class="movie-grid" id="watchlistGrid"></div>
+        </section>
+
+        <section class="feedback-section" id="feedback">
+            <p class="tagline">WE VALUE YOUR OPINION</p>
+            <h2>Share Your Feedback</h2>
+            <p>Tell us about your experience with CineMatch.</p>
+
+            <form id="feedbackForm">
+                <label for="userName">Your Name</label>
+                <input type="text" id="userName" placeholder="Enter your name" required minlength="2">
+
+                <label for="userEmail">Email Address</label>
+                <input type="email" id="userEmail" placeholder="Enter your email" required>
+
+                <label for="userRating">Rate Our Website</label>
+                <select id="userRating" required>
+                    <option value="">Select rating</option>
+                    <option value="5">★★★★★ - Excellent</option>
+                    <option value="4">★★★★ - Very Good</option>
+                    <option value="3">★★★ - Good</option>
+                    <option value="2">★★ - Average</option>
+                    <option value="1">★ - Needs Improvement</option>
+                </select>
+
+                <label for="userMessage">Your Feedback</label>
+                <textarea id="userMessage" rows="4" placeholder="Write your feedback..." required minlength="5"></textarea>
+
+                <button type="submit" class="primary-btn">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 CineMatch | MCA Web Development Mini Project</p>
+        <p>Made with HTML, CSS and JavaScript</p>
+        <a href="mailto:cinematch@example.com">Contact Us</a>
+    </footer>
+
+    <dialog id="movieDialog">
+        <button class="dialog-close" id="closeDialog" aria-label="Close">✕</button>
+        <div id="dialogContent"></div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
